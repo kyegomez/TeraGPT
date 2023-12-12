@@ -6,7 +6,7 @@ Train a production grade GPT in less than 400 lines of code. Better than Karpath
 
 
 ## Install
-`pip3 install  `
+`pip3 install teragpt `
 
 
 
