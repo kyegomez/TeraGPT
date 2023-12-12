@@ -29,6 +29,20 @@ print(out.shape)
 
 ```
 
+### Tokenizer
+```python
+from teragpt import Tokenizer
+
+tokenizer_name = "hf-internal-testing/llama-tokenizer"
+tokenizer = Tokenizer(tokenizer_name=tokenizer_name)
+encoded_text = tokenizer.encode("This is a sample text")
+decoded_text = tokenizer.decode(encoded_text)
+print("Encoded text:", encoded_text)
+print("Decoded text:", decoded_text)
+
+```
+
+
 ### Train
 ```python
 from teragpt import train
