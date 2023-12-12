@@ -13,7 +13,7 @@ from zeta.training.activation_checkpoint import activation_checkpointing
 from zeta.training.dataloader import build_dataloaders, build_pre_tokenized
 from zeta.training.fsdp import fsdp
 from zeta.training.scheduler import get_lr_scheduler_with_warmup
-
+from teragpt.main import TeraGPT
 
 def print_num_params(model, accelerator: Accelerator):
     """Print number of parameters in model"""
@@ -24,20 +24,20 @@ def print_num_params(model, accelerator: Accelerator):
 
 def Trainer(
     gradient_accumulate_every: int = 2,
-    batch_size: int = None,
-    seq_len: int = None,
+    batch_size: int = 1,
+    seq_len: int = 32052,
     entity_name: str = "zeta",
-    model=None,
+    model=TeraGPT,
     use_fsdp: bool = False,
     use_activation_checkpointing: bool = False,
-    learning_rate=None,
-    seed=None,
-    use_pretokenized: bool = False,
+    learning_rate: float = 1e-4,
+    seed: int = 42,
+    use_pretokenized: bool = True,
     resume_from_checkpoint=None,
-    checkpointing_steps=None,
-    output_dir=None,
+    checkpointing_steps: int = 1000,
+    output_dir: str = "checkpoints/",
     optimizer_type: str = "Adam8bit",
-    weight_decay=None,
+    weight_decay: float = 0.1,
     use_deepspeed=None,
     *args,
     **kwargs
