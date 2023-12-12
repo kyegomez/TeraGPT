@@ -29,6 +29,14 @@ print(out.shape)
 
 ```
 
+### Train
+```python
+from teragpt import train
+
+train()
+
+```
+
 
 # License
 MIT

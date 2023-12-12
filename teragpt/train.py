@@ -13,6 +13,7 @@ from accelerate import Accelerator
 from accelerate.logging import get_logger
 from accelerate.state import AcceleratorState
 from accelerate.utils import InitProcessGroupKwargs
+from andromeda_torch.core.transformer import Transformer
 from datasets import load_dataset
 from lion_pytorch import Lion
 from torch.distributed.algorithms._checkpoint.checkpoint_wrapper import (
@@ -40,12 +41,11 @@ from transformers import (
     get_linear_schedule_with_warmup,
     set_seed,
 )
+from zeta.optim import StableAdamWUnfused
 
 # from andromeda.model import Andromeda
 # from andromeda_torch.configs import Andromeda1Billion
 from teragpt.main import TeraGPT, TransformerBlock
-from andromeda_torch.core.transformer import Transformer
-from zeta.optim import StableAdamWUnfused
 
 # state = AcceleratorState()
 
